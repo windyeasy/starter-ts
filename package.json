@@ -5,7 +5,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "rollup -c",
+    "type": "tsc --emitDeclarationOnly",
+    "build:js": "rollup -c",
+    "build:dts": "rollup -c rollup.dts.config.js",
+    "build": "npm run type && npm run build:js && npm run build:dts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,7 +18,11 @@
     "@babel/preset-env": "^7.27.2",
     "@babel/preset-typescript": "^7.27.1",
     "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4",
-    "rollup": "^4.41.1"
+    "rollup": "^4.41.1",
+    "rollup-plugin-dts": "^6.2.1",
+    "typescript": "^5.8.3"
   }
 }
