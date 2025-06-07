@@ -11,6 +11,7 @@ function printPoint(point: Point) {
 printPoint({ x: 1, y: 2 });
 
 console.log("hello world")
+console.log("hello world2")
 export {
   printPoint
 }
