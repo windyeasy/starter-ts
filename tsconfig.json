@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     // 通过tsc生成声明文件
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationDir": "dist/types",
+    // "declaration": true,
+    // "emitDeclarationOnly": true,
+    // "declarationDir": "dist/types",
     "target": "ESNext",
     "lib": ["ESNext", "dom"],
     "module": "ESNext",
@@ -13,7 +13,7 @@
     // 是否必须明确空值的类型
     "strictNullChecks": true,
     // 不生成任何输出，比如 .d.ts 文件
-    // "noEmit": true,
+    "noEmit": true,
     // 用于处理：ejs和cjs的兼容性，关闭时，ejs会强制包装esm，有使用cjs和ejs时开启
     "esModuleInterop": true,
     // 用于 严格控制模块导入/导出的语法形式，确保代码中的模块语句（import/export）在编译后保持原样，避免被 TypeScript 自动转换。

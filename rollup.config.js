@@ -1,33 +1,54 @@
-import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
+import dts from 'rollup-plugin-dts';
 
-const extensions = ['.js', '.ts', '.json', '.tsx', '.jsx', '.mjs', '.mts', '.cjs'];
-/**
- * @type {import('rollup').RollupOptions}
- */ 
-export default {
-  input: 'src/index.ts',
-  output: [
+function createConfig(isProp){
+  const sourcemap = isProp ? false : true
+  
+  /**
+   * @type {import('rollup').RollupOptions}
+   */
+  return [
     {
-      file: './dist/index.cjs',
-      format: 'cjs',
-      exports: 'named'
+      input: 'src/index.ts',
+      output: [
+        {
+          file: './dist/index.cjs',
+          format: 'cjs',
+          exports: 'named',
+          sourcemap
+        },
+        {
+          file: './dist/index.mjs',
+          format: 'es',
+          sourcemap
+        },
+      ],
+      plugins: [
+        resolve({
+          extensions:  ['.js', '.ts', '.json', '.tsx', '.jsx', '.mjs', '.mts', '.cjs'],
+        }),
+        commonjs(),
+        typescript({
+          tsconfig: './tsconfig.json',
+          sourceMap: sourcemap
+        })
+      ]
     },
     {
-      file: './dist/index.cjs',
-      format: 'es'
-    },
-  ],
-  plugins: [
-    resolve({
-      extensions,
-    }),
-    commonjs(),
-    babel({
-      extensions,
-      exclude: 'node_modules/**',
-      babelHelpers: 'bundled', // 作一些填充
-    }),
+      input: 'src/index.ts',
+      output: {
+        file: 'dist/index.d.ts',
+        format: 'es'
+      },
+      plugins: [dts()]
+    }
   ]
+}
+ 
+export default (commandLineArgs) => {
+  const isDev = commandLineArgs.watch
+
+  return createConfig(!isDev)
 }
