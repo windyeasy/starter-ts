@@ -10,6 +10,8 @@
     "build": "rimraf dist && rollup -c",
     "dev": "rimraf dist && rollup -c -w",
     "start": "node --enable-source-maps dist/index.cjs",
+    "lint": "eslint .",
+    "lint:fix": "pnpm run lint --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,16 +21,28 @@
     "LICENSE"
   ],
   "author": "windyeasy <windyeasy13gb@163.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "@eslint/markdown": "^6.5.0",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.2",
+    "@stylistic/eslint-plugin": "^4.4.1",
     "@types/node": "^22.15.30",
+    "eslint": "^9.28.0",
+    "eslint-plugin-jsdoc": "^50.7.1",
+    "eslint-plugin-jsonc": "^2.20.1",
+    "eslint-plugin-n": "^17.19.0",
+    "eslint-plugin-unicorn": "^59.0.1",
+    "globals": "^16.2.0",
+    "jiti": "^2.4.2",
+    "jsonc-eslint-parser": "^2.4.0",
     "rimraf": "^6.0.1",
     "rollup": "^4.41.1",
     "rollup-plugin-dts": "^6.2.1",
     "tslib": "^2.8.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.1"
   }
 }
