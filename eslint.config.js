@@ -12,18 +12,19 @@ import jsdoc from 'eslint-plugin-jsdoc'
 
 /**
  * finished: node, unicorn, markdown,  , jsdoc
- * tod: jsonc order
+ * todo: jsonc order
  */
 export default defineConfig([
   globalIgnores([
     '**/dist/**',
   ]),
   {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
+    files: ['**/*.?([cm])([tj])s', '**/*.?([tj])sx'],
     plugins: { js }, extends: ['js/recommended'],
   },
   {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
+    // 查找文件匹配规则，与正则的语法是不同的
+    files: ['**/*.?([cm])([tj])s', '**/*.?([tj])sx'],
     languageOptions: { globals: globals.browser },
   },
   {
