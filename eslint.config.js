@@ -76,8 +76,10 @@ export default defineConfig([
       '@stylistic/indent': ['error', 2],
       '@stylistic/jsx-indent': ['error', 2],
       '@stylistic/quotes': ['error', 'single'],
+      // unicorn
       ...unicorn.configs.recommended.rules,
       'unicorn/no-anonymous-default-export': 'off',
+      'unicorn/prevent-abbreviations': 'off',
       // jsdoc
       'jsdoc/check-access': 'warn',
       'jsdoc/check-param-names': 'warn',
