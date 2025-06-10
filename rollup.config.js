@@ -5,7 +5,6 @@ import dts from 'rollup-plugin-dts'
 
 function createConfig(isProperty) {
   const sourcemap = isProperty ? false : true
-
   /**
    * @type {import('rollup').RollupOptions}
    */
