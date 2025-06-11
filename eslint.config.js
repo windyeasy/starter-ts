@@ -9,6 +9,7 @@ import jsonc from 'eslint-plugin-jsonc'
 import unicorn from 'eslint-plugin-unicorn'
 import markdown from '@eslint/markdown'
 import jsdoc from 'eslint-plugin-jsdoc'
+import unusedImports from 'eslint-plugin-unused-imports'
 
 /**
  * finished: node, unicorn, markdown,  , jsdoc
@@ -64,6 +65,7 @@ export default defineConfig([
       'unicorn': unicorn,
       'jsdoc': jsdoc,
       node,
+      'unused-imports': unusedImports,
     },
     rules: {
       'semi': ['error', 'never'],
@@ -106,6 +108,18 @@ export default defineConfig([
       'node/prefer-global/buffer': ['error', 'never'],
       'node/prefer-global/process': ['error', 'never'],
       'node/process-exit-as-throw': 'error',
+      // unused-imports
+      'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
+      'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-vars': [
+        'warn',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+        },
+      ],
     },
   },
 ])
