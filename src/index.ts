@@ -4,7 +4,7 @@ interface Point {
   z?: number
 }
 
-function printPoint(point: Point) {
+function printPoint(point: Point): void {
   console.log(`x: ${point.x}, y: ${point.y}`)
 }
 
