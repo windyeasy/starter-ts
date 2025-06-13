@@ -5,7 +5,13 @@
   "description": "_description_",
   "author": "windyeasy <windyeasy13gb@163.com>",
   "license": "MIT",
+  "homepage": "https://github.com/windyeasy/starter-ts#readme",
+  "bugs": "https://github.com/antfu/starter-ts/issues",
   "keywords": [],
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -15,9 +21,9 @@
   ],
   "scripts": {
     "dev": "rimraf dist && tsdown --watch",
-    "start": "concurrently 'npm run dev' 'npm run run'",
+    "start": "concurrently 'npm run dev' 'npm run dev-run'",
     "build": "rimraf dist && tsdown",
-    "run": "nodemon dist/index.js",
+    "dev-run": "nodemon dist/index.js",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
