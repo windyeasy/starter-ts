@@ -6,7 +6,7 @@
   "author": "windyeasy <windyeasy13gb@163.com>",
   "license": "MIT",
   "homepage": "https://github.com/windyeasy/starter-ts#readme",
-  "bugs": "https://github.com/antfu/starter-ts/issues",
+  "bugs": "https://github.com/windyeasy/starter-ts/issues",
   "keywords": [],
   "exports": {
     ".": "./dist/index.mjs",
