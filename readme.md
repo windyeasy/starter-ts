@@ -1,4 +1,4 @@
-# stater-ts
+# starter-ts
 
 My awesome typescript library
 
